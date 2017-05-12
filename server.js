@@ -22,7 +22,7 @@ app.get('/', function (req, res) {
 
 //get answer
 app.get('/answer', sendAnswer);
-function sendAnswer(response) {
+function sendAnswer(request, response) {
 	let answer;
 	let rand = Math.random() * 100;
 	if (rand < 50) {

@@ -8,11 +8,13 @@ function generateDecision() {
         fetch('/answer')
             .then(function(response) {
                 return response.json();
-            }).then(function(data) {
-            g('out').innerHTML = data;
-        }).catch(function(err) {
-            console.log(err);
-        })
+            })
+            .then(function(data) {
+                g('out').innerHTML = data;
+            })
+            .catch(function(err) {
+                console.log(err);
+            })
     } else {
         g('out').innerHTML = 'No Question...'
     }
@@ -26,7 +28,7 @@ function addNewOption() {
         fetch('/new_option',
             {
                 method: 'POST',
-                headers: { 'content-type': 'application/json' },
+                headers: {'content-type': 'application/json'},
                 body: JSON.stringify({text: newOption})
             })
             .then(function(response) {

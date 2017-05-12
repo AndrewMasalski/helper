@@ -5,7 +5,7 @@ function g(id) {
 function generateDecision() {
     let question = g('input').value;
     if (question) {
-        fetch('http://localhost:3000/answer')
+        fetch('/answer')
             .then(function(response) {
                 return response.json();
             }).then(function(data) {
@@ -23,7 +23,7 @@ function addNewOption() {
     console.log(newOption);
     let message;
     if (newOption) {
-        fetch('http://localhost:3000/new_option',
+        fetch('/new_option',
             {
                 method: 'POST',
                 headers: { 'content-type': 'application/json' },
